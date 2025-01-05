@@ -1,5 +1,9 @@
 # fe-node-todo
 
+# 미션 PR
+
+- https://github.com/softeer5th/fe-node-todo/pull/2
+
 # 추가 공부 내용
 
 ## `Map` 객체
