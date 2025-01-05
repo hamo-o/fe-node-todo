@@ -22,11 +22,15 @@ const Output = {
 
   printMenu() {
     Output.printLine();
-    console.log("1. 추가");
-    console.log("2. 조회");
-    console.log("3. 수정");
-    console.log("4. 삭제");
-    console.log("q. 종료");
+    console.log(
+      `
+    1. 추가
+    2. 조회
+    3. 수정
+    4. 삭제
+    q. 종료
+    `.replace(/^ +/gm, "")
+    );
   },
 
   printTodoDetail(id) {
