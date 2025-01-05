@@ -14,7 +14,7 @@ const Output = {
     Output.printLine();
     console.log("투두리스트");
     console.log("id | title");
-    todoMap.values().forEach((todo) => {
+    todoMap.forEach((todo, _) => {
       const { id, title } = todo.getTodo();
       console.log(id, "|", title);
     });
