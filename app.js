@@ -3,6 +3,13 @@ import Output from "./output.js";
 import { todoMap, setTodoMap } from "./todoList.js";
 
 class App {
+  #ACTIONS = {
+    1: this.insert,
+    2: this.detail,
+    3: this.edit,
+    4: this.delete,
+  };
+
   async run() {
     Output.printWelcome();
     while (1) {
@@ -13,15 +20,8 @@ class App {
       if (menu === "q" || menu === "Q") {
         Input.close();
         break;
-      } else if (menu === "1") {
-        await this.insert();
-      } else if (menu === "2") {
-        await this.detail();
-      } else if (menu === "3") {
-        await this.edit();
-      } else if (menu === "4") {
-        await this.delete();
       }
+      await this.#ACTIONS[menu]();
     }
   }
 
