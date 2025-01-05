@@ -3,6 +3,7 @@ import { todoMap } from "./todoList.js";
 const Output = {
   printWelcome() {
     console.log("소프티어 부트캠프 5기 투두리스트입니다!");
+    Output.printLine();
   },
 
   printTodos() {
@@ -12,25 +13,17 @@ const Output = {
       return;
     }
     Output.printLine();
-    console.log("투두리스트");
-    console.log("id | title");
+    console.log("투두리스트\nid | title");
     todoMap.forEach((todo, _) => {
       const { id, title } = todo.getTodo();
       console.log(id, "|", title);
     });
   },
 
-  printMenu() {
+  printMenu(menus) {
     Output.printLine();
-    console.log(
-      `
-    1. 추가
-    2. 조회
-    3. 수정
-    4. 삭제
-    q. 종료
-    `.replace(/^ +/gm, "")
-    );
+    console.log(menus.join("\n"));
+    Output.printLine();
   },
 
   printTodoDetail(id) {

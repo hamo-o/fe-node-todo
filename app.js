@@ -3,25 +3,27 @@ import Output from "./output.js";
 import { todoMap, setTodoMap } from "./todoList.js";
 
 class App {
-  #ACTIONS = {
+  #MENU_ACTIONS = {
     1: this.insert,
     2: this.detail,
     3: this.edit,
     4: this.delete,
   };
 
+  #MENU_NUMBERS = ["1. 추가", "2. 조회", "3. 수정", "4. 삭제", "q. 종료"];
+
   async run() {
     Output.printWelcome();
     while (1) {
       Output.printTodos();
-      Output.printMenu();
+      Output.printMenu(this.#MENU_NUMBERS);
 
       const menu = await Input.readMenu();
       if (menu === "q" || menu === "Q") {
         Input.close();
         break;
       }
-      await this.#ACTIONS[menu]();
+      await this.#MENU_ACTIONS[menu]();
     }
   }
 
